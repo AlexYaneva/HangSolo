@@ -58,7 +58,7 @@ class WelcomePage(Frame):
 		header.pack()
 
 		#ascii art image imported from the separate file
-		tie_fighter_image = MyLabel(self, text=a.tie_figther) 
+		tie_fighter_image = Label(self, text=a.tie_figther, font=('fixedsys', 9), bg='black', fg='#ffff00') 
 		tie_fighter_image.pack()
 
 		play_button = MyButton(self, text='P L A Y', command=lambda: controller.show_frame('PlayPage'))
@@ -108,7 +108,7 @@ class PlayPage(Frame):
 		submit_button = MyButton(self, text='C H E C K', command=lambda: self.check_user_guess(self.user_guess))
 		submit_button.pack(pady=10)
         
-        #gets the value from the hints dictionary imported through the words module
+        #gets the value from the hints dictionary 
 		self.hint_text = Label(self, text=w.hints.get(self.random_word), bg='black', fg='black', font=('fixedsys', 10)) 
 		self.hint_text.pack(pady=10)
 
@@ -117,7 +117,8 @@ class PlayPage(Frame):
 
 
 	def display_hint(self):
-		'''making the hint text appear by changing its font color'''		
+		'''making the hint text appear by changing its font color'''	
+
 		self.hint_text['fg'] = '#ffff00'
 
 
@@ -176,7 +177,7 @@ class WinPage(Frame):
 		self.winner = MyLabel(self, text=' WELL DONE PADAWAN!\n YOU HAVE SAVED HAN SOLO!')
 		self.winner.pack()
 
-		self.falcon = MyLabel(self, text=a.falcon, font=('consolas', 5))
+		self.falcon = Label(self, text=a.falcon, font=('fixedsys', 9), bg='black', fg='#ffff00')
 		self.falcon.pack()
 
 		self.menu = MyButton(self, text='PLAY AGAIN', command=lambda: controller.show_frame('WelcomePage'))

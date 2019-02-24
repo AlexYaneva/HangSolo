@@ -1,3 +1,7 @@
+# Creating subclasses for labels and buttons to define the specific styling
+# and keep it consistent throughout the different frames in the game
+
+
 from tkinter import *
 from tkinter import font as tkfont
 
@@ -13,7 +17,7 @@ class MyButton(Button):
 class MyLabel(Label):
 	def __init__(self, parent, *args, **kwargs):
 		Label.__init__(self,parent, *args, **kwargs)
-		self['font'] = tkfont.Font(family='fixedsys', size=5, weight="bold")
+		self['font'] = tkfont.Font(family='fixedsys', size=14)
 		self['bg'] = 'black'
 		self['fg'] = '#ffff00'
 
