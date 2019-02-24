@@ -14,11 +14,6 @@ class BaseApp(Tk):
 		Tk.__init__(self)
 		self.title('HANG SOLO')
 
-		#styling of widgets which will be used throughout
-		# self.app_font = tkfont.Font(family='fixedsys', size=16, weight="bold")
-		# self.bg_color = 'black'
-		# self.fg_color = '#ffff00'
-
 		container = Frame(self, background='#2c3738')
 		container.pack(side="top", fill="both", expand=True)
 		container.grid_rowconfigure(0, weight=1)
