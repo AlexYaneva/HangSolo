@@ -1,5 +1,5 @@
 # Creating subclasses for labels and buttons to define the specific styling
-# and keep it consistent throughout the different frames in the game
+# and keep it consistent throughout the different frames 
 
 
 from tkinter import *
