@@ -3,9 +3,10 @@
 from tkinter import *
 from tkinter import font as tkfont 
 import random
-import ascii_art as a #separate file that holds the ascii art images
+import ascii_art as a #separate file that holds the ascii art 
 import words as w #separate file which has the word dictionaries and hints
 from utils import MyButton, MyLabel
+from PIL import ImageTk, Image
 
 
 class BaseApp(Tk):
@@ -108,7 +109,7 @@ class PlayPage(Frame):
 		self.hint_text.pack(pady=10)
 
 		hint_button = MyButton(self, text='H I N T', command=lambda:self.display_hint())
-		hint_button.pack(pady=10)
+		hint_button.pack(side='bottom', pady=10)
 
 
 	def display_hint(self):
@@ -187,11 +188,17 @@ class LostPage(Frame):
 		self.controller = controller
 		self.config(bg='black')
 
-		self.loser = MyLabel(self, text=' YOU HAVE LOST!\n SOLO WAS HUNG AND HE IS NOT HAPPY!')
-		self.loser.pack()
+		self.loser = MyLabel(self, text=' YOU HAVE LOST!\n SOLO WAS HANGED AND CHEWIE IS CRYING...')
+		self.loser.pack(pady=10)
 
-		# self.hangman = Label(self, text=a.hangman, font=('consolas', 15), fg=controller.fg_color, bg=controller.bg_color)
-		# self.hangman.pack()
+		img = Image.open('Hangman.png').resize((200,285))
+		hangman_photo = ImageTk.PhotoImage(img)
+		self.hangman = Label(self, image=hangman_photo, bg='black')
+		self.hangman.image = hangman_photo #keeping a reference to the image object to stop the image from being cleared(garbage-collecting)
+		self.hangman.pack()
+
+		filler4 = MyLabel(self, text='')
+		filler4.pack()
 
 		self.menu1 = MyButton(self, text='PLAY AGAIN', command=lambda: controller.show_frame('WelcomePage'))
 		self.menu1.pack()
